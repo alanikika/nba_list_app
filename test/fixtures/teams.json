@@ -1,0 +1,12 @@
+{
+  "teams": [
+    {
+      "id": 1,
+      "name": "Boston Celtics"
+    },
+    {
+      "id": 2,
+      "name": "Brooklyn Nets"
+    }
+  ]
+}
