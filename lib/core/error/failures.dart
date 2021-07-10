@@ -10,3 +10,5 @@ class ServerFailure extends Failures {
 
   ServerFailure({this.message});
 }
+
+class CacheFailure extends Failures {}
