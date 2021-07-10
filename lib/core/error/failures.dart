@@ -1,11 +1,12 @@
 import 'package:equatable/equatable.dart';
 
 class Failures extends Equatable {
-
-  final List properties;
-
-  Failures(this.properties) : super();
-
   @override
-  List<Object> get props => [properties];
+  List<Object> get props => [];
+}
+
+class ServerFailure extends Failures {
+  final String message;
+
+  ServerFailure({this.message});
 }
