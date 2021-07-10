@@ -17,14 +17,16 @@ class NbaTeamsBloc extends Bloc<NbaTeamsEvent, NbaTeamsState> {
 
   @override
   Stream<NbaTeamsState> mapEventToState(NbaTeamsEvent event) async* {
-    yield Loading();
+    if(event is FetchNbaTeams) {
+      yield Loading();
 
-    final failureOrNbaTeams = await getNbaTeams(NoParams());
+      final failureOrNbaTeams = await getNbaTeams(NoParams());
 
-    yield failureOrNbaTeams.fold(
-      (failure) => Error(message: _mapFailureToMessage(failure)),
-      (data) => Loaded(nbaTeams: data),
-    );
+      yield failureOrNbaTeams.fold(
+            (failure) => Error(message: _mapFailureToMessage(failure)),
+            (data) => Loaded(nbaTeams: data),
+      );
+    }
   }
 
   String _mapFailureToMessage(Failures failure) {
